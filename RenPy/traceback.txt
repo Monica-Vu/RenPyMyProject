@@ -1,0 +1,26 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 30, in script
+    e dab "I wish I was as cool as you!"
+Exception: Say has image attributes (u'dab',), but there's no image tag associated with the speaking character.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 30, in script
+    e dab "I wish I was as cool as you!"
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ast.py", line 652, in execute
+    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/exports.py", line 1180, in say
+    who(what, *args, **kwargs)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 949, in __call__
+    self.resolve_say_attributes(False, wanted=speaking)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 845, in resolve_say_attributes
+    raise Exception("Say has image attributes %r, but there's no image tag associated with the speaking character." % (attrs,))
+Exception: Say has image attributes (u'dab',), but there's no image tag associated with the speaking character.
+
+Darwin-15.6.0-x86_64-i386-64bit
+Ren'Py 6.99.14.3.3347
+RenPy 1.0
+Thu May 17 15:34:05 2018
