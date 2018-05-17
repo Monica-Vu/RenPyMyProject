@@ -22,38 +22,33 @@ label start:
     # directory.
 
     show mario happy
-
+    jump start
     # These display lines of dialogue.
-
-    e "James senpai ur so kewl!"
-
+    "Mario" "James senpai ur so kewl!"
     show mario dab
-
-    e "I wish I was as cool as you!"
-
+    "Mario" "I wish I was as cool as you!"
     show mario question
-
     "Bam!!" with vpunch
-
     show mario
-
-    "Hahaha senpai, gotcha!"
 
     menu:
         "Beat him":
-            e "Ouch Senpai that hurt"
-            jump end
+            "Mario" "Ouch Senpai that hurt"
+            jump neutralend
         "Pat him":
-            e "Thanks Senpai"
-            jump end
+            "Mario" "Thanks Senpai"
+            jump goodend
 
         "Kill him":
-            e "Nani!"
-            jump end
+            "Mario" "Nani!"
+            jump badend
 
-    label end:
-        e "OH nos"
-
+    label badend:
+        "Mario" "OH nos"
+    label neutralend:
+        "Mario" "How could you senpai"
+    label goodend:
+        "Mario" "You're the best senpai"
 
 
 
