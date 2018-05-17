@@ -4,9 +4,16 @@
 # name of the character.
 
 define e = Character("Mario", image="Mario")
+define me = Character("Me", color="#f47a42")
 
 
 # The game starts here.
+screen map():
+     tag map
+     zorder 1
+     modal False
+
+     text "This is a map"
 
 label start:
 
@@ -23,31 +30,38 @@ label start:
 
     show mario happy
     # These display lines of dialogue.
-    "Mario" "James senpai ur so kewl!"
+    e "James senpai ur so kewl!"
     show mario dab
-    "Mario" "I wish I was as cool as you!"
-    show mario question
+    e "I wish I was as cool as you!"
+    show mario punch
     "Bam!!" with vpunch
     show mario
 
+    me "I'm gonna get you back for that"
     menu:
         "Beat him":
-            "Mario" "Ouch Senpai that hurt"
+            show mario hurt
+            e "Ouch Senpai that hurt"
             jump neutralend
         "Pat him":
-            "Mario" "Thanks Senpai"
+            e "Thanks Senpai"
             jump goodend
 
         "Kill him":
+            show mario hurt
             "Mario" "Nani!"
             jump badend
 
+
 label badend:
-    "Mario" "OH nos"
+    e "OH nos"
+    return
 label neutralend:
-    "Mario" "How could you senpai"
+    e "How could you senpai"
+    return
 label goodend:
-    "Mario" "You're the best senpai"
+    e "You're the best senpai"
+    return
 
 
 
