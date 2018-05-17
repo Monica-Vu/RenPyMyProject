@@ -22,7 +22,6 @@ label start:
     # directory.
 
     show mario happy
-    jump start
     # These display lines of dialogue.
     "Mario" "James senpai ur so kewl!"
     show mario dab
@@ -43,12 +42,12 @@ label start:
             "Mario" "Nani!"
             jump badend
 
-    label badend:
-        "Mario" "OH nos"
-    label neutralend:
-        "Mario" "How could you senpai"
-    label goodend:
-        "Mario" "You're the best senpai"
+label badend:
+    "Mario" "OH nos"
+label neutralend:
+    "Mario" "How could you senpai"
+label goodend:
+    "Mario" "You're the best senpai"
 
 
 
