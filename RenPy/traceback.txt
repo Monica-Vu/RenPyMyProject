@@ -1,63 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While processing the color property of anonymous style:
-  File "game/script.rpy", line 40, in script
-    menu:
-ValueError: invalid literal for int() with base 16: 'R'
+While running game code:
+  File "renpy/common/00start.rpy", line 120, in script
+    return
+Exception: Could not find return label (u'/Users/James/Documents/GitHub/RenPyMyProject/RenPy/game/script.rpy', 1527198100, 3).
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 40, in script
-    menu:
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ast.py", line 652, in execute
-    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/exports.py", line 1180, in say
-    who(what, *args, **kwargs)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 1016, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, **display_args)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 817, in do_display
-    **display_args)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 566, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ui.py", line 287, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 2635, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 3019, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 511, in visit_all
-    d.visit_all(callback)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 511, in visit_all
-    d.visit_all(callback)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 511, in visit_all
-    d.visit_all(callback)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/screen.py", line 424, in visit_all
-    self.child.visit_all(callback)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 511, in visit_all
-    d.visit_all(callback)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 511, in visit_all
-    d.visit_all(callback)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 511, in visit_all
-    d.visit_all(callback)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 511, in visit_all
-    d.visit_all(callback)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 513, in visit_all
-    callback(self)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 3019, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/text/text.py", line 1497, in per_interact
-    if self.style.slow_abortable:
-  File "gen/styleclass.pxi", line 733, in renpy.styledata.styleclass.Style.slow_abortable.__get__
-  File "style.pyx", line 486, in renpy.style.StyleCore._get
-  File "style.pyx", line 702, in renpy.style.build_style
-  File "style.pyx", line 699, in renpy.style.build_style
-  File "gen/style_functions.pyx", line 744, in style_functions.color_property
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/color.py", line 146, in __new__
-    r = int(c[0], 16) * 0x11
-ValueError: invalid literal for int() with base 16: 'R'
+  File "renpy/common/00start.rpy", line 120, in script
+    return
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ast.py", line 1448, in execute
+    next_node(renpy.game.context().lookup_return(pop=True))
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/execution.py", line 629, in lookup_return
+    raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
+Exception: Could not find return label (u'/Users/James/Documents/GitHub/RenPyMyProject/RenPy/game/script.rpy', 1527198100, 3).
 
 Darwin-15.6.0-x86_64-i386-64bit
 Ren'Py 6.99.14.3.3347
 RenPy 1.0
-Thu May 17 16:47:39 2018
+Thu May 24 17:45:35 2018
