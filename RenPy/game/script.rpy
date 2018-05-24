@@ -5,19 +5,32 @@
 
 define e = Character("Mario", image="Mario")
 define me = Character("Me", color="#f47a42")
+define peach = Character("Peach", image="Peach")
+define bowserjr = Character("Bowserjr", image = "bowser")
 
 
 # The game starts here.
 screen example_imagemap:
     imagemap:
-        ground "worldmap.jpg"
-        hover "worldmaphover.jpg"
+        auto "worldmap_%s.jpg"
 
         hotspot (850, 400, 400, 400) clicked Return("center")
         hotspot (150, 500, 300, 300) clicked Return("bowserjr")
         hotspot (1700, 20, 200, 300) clicked Return("peach")
         hotspot (790, 20, 200, 200) clicked Return("boo")
 
+label peach:
+    image bg peachbackground = "peachbackground.jpg"
+    show bg peachbackground
+    show peach
+    peach "Oh hi there!"
+
+label bowserjr:
+    image bg space = "spacebg.jpg"
+    show bg space
+    show bowserjr
+
+    bowserjr "Heee haaaww!"
 label start:
 
     # Show a background. This uses a placeholder by default, but you can
@@ -31,13 +44,11 @@ label start:
     $ result = _return
 
     if result == "center":
-        e "You clicked on the center"
     elif result == "bowserjr":
-        e "You clicked on bowserjr"
+        jump bowserjr
     elif result == "peach":
-        e "You picked princess peach!"
+        jump peach
     elif result == "boo":
-        e "You picked boo!"
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images

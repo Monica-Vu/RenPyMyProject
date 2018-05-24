@@ -2,9 +2,21 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 10: Line is indented, but the preceding define statement statement does not expect a block. Please check this line's indentation.
-    python:
-    ^
+File "game/script.rpy", line 46: if statement expects a non-empty block.
+    if result == "center":
+                          ^
+
+File "game/script.rpy", line 47: expected statement.
+    elif result == "bowserjr":
+                ^
+
+File "game/script.rpy", line 49: expected statement.
+    elif result == "peach":
+                ^
+
+File "game/script.rpy", line 51: expected statement.
+    elif result == "boo":
+                ^
 
 Ren'Py Version: Ren'Py 6.99.14.3.3347
-Thu May 24 16:51:33 2018
+Thu May 24 18:19:26 2018

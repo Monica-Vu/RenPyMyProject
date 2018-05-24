@@ -1,22 +1,42 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 120, in script
-    return
-Exception: Could not find return label (u'/Users/James/Documents/GitHub/RenPyMyProject/RenPy/game/script.rpy', 1527198100, 3).
+  File "renpy/common/00start.rpy", line 186, in script call
+    call _start_store
+  File "renpy/common/00start.rpy", line 139, in script call
+    label _start_store:
+  File "renpy/common/00start.rpy", line 94, in script
+    python hide:
+  File "renpy/common/00start.rpy", line 94, in <module>
+    python hide:
+  File "renpy/common/00start.rpy", line 97, in _execute_python_hide
+    i()
+  File "renpy/common/00console.rpy", line 600, in watch_after_load
+    if config.developer and traced_expressions:
+NameError: global name 'traced_expressions' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 120, in script
-    return
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ast.py", line 1448, in execute
-    next_node(renpy.game.context().lookup_return(pop=True))
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/execution.py", line 629, in lookup_return
-    raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
-Exception: Could not find return label (u'/Users/James/Documents/GitHub/RenPyMyProject/RenPy/game/script.rpy', 1527198100, 3).
+  File "renpy/common/00start.rpy", line 186, in script call
+    call _start_store
+  File "renpy/common/00start.rpy", line 139, in script call
+    label _start_store:
+  File "renpy/common/00start.rpy", line 94, in script
+    python hide:
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ast.py", line 862, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/python.py", line 1888, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "renpy/common/00start.rpy", line 94, in <module>
+    python hide:
+  File "renpy/common/00start.rpy", line 97, in _execute_python_hide
+    i()
+  File "renpy/common/00console.rpy", line 600, in watch_after_load
+    if config.developer and traced_expressions:
+NameError: global name 'traced_expressions' is not defined
 
 Darwin-15.6.0-x86_64-i386-64bit
 Ren'Py 6.99.14.3.3347
 RenPy 1.0
-Thu May 24 17:45:35 2018
+Thu May 24 18:18:37 2018
