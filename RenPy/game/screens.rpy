@@ -261,6 +261,9 @@ screen quick_menu():
             textbutton _("Q.Save") action QuickSave()
             textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Kill everyone") action ShowMenu('death')
+
+
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -291,6 +294,7 @@ style quick_button_text:
 
 screen navigation():
 
+
     vbox:
         style_prefix "navigation"
 
@@ -303,7 +307,11 @@ screen navigation():
 
             textbutton _("Start") action Start()
 
+            textbutton _("Prologue") action Start("prologue")
+
         else:
+
+            textbutton _("Codex") action ShowMenu("codex")
 
             textbutton _("History") action ShowMenu("history")
 
@@ -323,14 +331,14 @@ screen navigation():
 
         textbutton _("About") action ShowMenu("about")
 
-        if renpy.variant("pc"):
+        textbutton _("Extras") action ShowMenu("extras")
 
-            ## Help isn't necessary or relevant to mobile devices.
+        if renpy.variant("pc"):
+            #mobile devices don't need this stuff
+
             textbutton _("Help") action ShowMenu("help")
 
-            ## The quit button is banned on iOS and unnecessary on Android.
             textbutton _("Quit") action Quit(confirm=not main_menu)
-
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
@@ -583,6 +591,100 @@ style about_label_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#save https://
 ## www.renpy.org/doc/html/screen_special.html#load
+
+# My custom screen
+
+
+
+screen death():
+    tag menu
+    text "death"
+    use game_menu(_("Cheats"), scroll="viewport"):
+
+        vbox:
+
+            hbox:
+                box_wrap True
+                vbox:
+                    style_prefix "radio"
+                    label _("Kill")
+                    python:
+                        def Kill():
+                            stats = "Second"
+                    textbutton _("Kill Mario") action [Hide("death"), Kill(), Jump("peach")]
+                    textbutton _("Kill Peach") action Preference("display", "fullscreen")
+                    textbutton _("Kill BowserJr") action Preference("display", "fullscreen")
+
+                vbox:
+                    style_prefix "radio"
+                    label _("Wifey")
+                    textbutton _("Marry Mario") action Preference("display", "window")
+                    textbutton _("Marry Peach") action Preference("display", "fullscreen")
+                    textbutton _("Marry BowserJr") action Preference("display", "fullscreen")
+
+                vbox:
+                    style_prefix "check"
+                    label _("Skip")
+                    textbutton _("Unseen Text") action Preference("skip", "toggle")
+                    textbutton _("After Choices") action Preference("after choices", "toggle")
+                    textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+
+                ## Additional vboxes of type "radio_pref" or "check_pref" can be
+                ## added here, to add additional creator-defined preferences.
+
+            null height (4 * gui.pref_spacing)
+
+            hbox:
+                style_prefix "slider"
+                box_wrap True
+
+                vbox:
+
+                    label _("Text Speed")
+
+                    bar value Preference("text speed")
+
+                    label _("Auto-Forward Time")
+
+                    bar value Preference("auto-forward time")
+
+                vbox:
+
+                    if config.has_music:
+                        label _("Music Volume")
+
+                        hbox:
+                            bar value Preference("music volume")
+
+                    if config.has_sound:
+
+                        label _("Sound Volume")
+
+                        hbox:
+                            bar value Preference("sound volume")
+
+                            if config.sample_sound:
+                                textbutton _("Test") action Play("sound", config.sample_sound)
+
+
+                    if config.has_voice:
+                        label _("Voice Volume")
+
+                        hbox:
+                            bar value Preference("voice volume")
+
+                            if config.sample_voice:
+                                textbutton _("Test") action Play("voice", config.sample_voice)
+
+                    if config.has_music or config.has_sound or config.has_voice:
+                        null height gui.pref_spacing
+
+                        textbutton _("Mute All"):
+                            action Preference("all mute", "toggle")
+                            style "mute_all_button"
+
+
+
 
 screen save():
 
@@ -1509,8 +1611,3 @@ style slider_pref_vbox:
 style slider_pref_slider:
     variant "small"
     xsize 900
-
-
-
-
-

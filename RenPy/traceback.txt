@@ -1,42 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 186, in script call
-    call _start_store
-  File "renpy/common/00start.rpy", line 139, in script call
-    label _start_store:
-  File "renpy/common/00start.rpy", line 94, in script
-    python hide:
-  File "renpy/common/00start.rpy", line 94, in <module>
-    python hide:
-  File "renpy/common/00start.rpy", line 97, in _execute_python_hide
-    i()
-  File "renpy/common/00console.rpy", line 600, in watch_after_load
-    if config.developer and traced_expressions:
-NameError: global name 'traced_expressions' is not defined
+  File "game/script.rpy", line 65, in script
+    peach "Oh hi there! [stats]"
+KeyError: u'stats'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 186, in script call
-    call _start_store
-  File "renpy/common/00start.rpy", line 139, in script call
-    label _start_store:
-  File "renpy/common/00start.rpy", line 94, in script
-    python hide:
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ast.py", line 862, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/python.py", line 1888, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "renpy/common/00start.rpy", line 94, in <module>
-    python hide:
-  File "renpy/common/00start.rpy", line 97, in _execute_python_hide
-    i()
-  File "renpy/common/00console.rpy", line 600, in watch_after_load
-    if config.developer and traced_expressions:
-NameError: global name 'traced_expressions' is not defined
+  File "game/script.rpy", line 65, in script
+    peach "Oh hi there! [stats]"
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ast.py", line 652, in execute
+    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/exports.py", line 1180, in say
+    who(what, *args, **kwargs)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 1003, in __call__
+    what = what_pattern.replace("[what]", sub(what, translate=translate))
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 985, in sub
+    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/substitutions.py", line 242, in substitute
+    s = formatter.vformat(s, (), kwargs)
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 563, in vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 585, in _vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 646, in get_field
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 605, in get_value
+KeyError: u'stats'
 
 Darwin-15.6.0-x86_64-i386-64bit
 Ren'Py 6.99.14.3.3347
 RenPy 1.0
-Thu May 24 18:18:37 2018
+Tue May 29 18:29:32 2018

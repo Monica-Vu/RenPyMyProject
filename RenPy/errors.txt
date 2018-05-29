@@ -2,21 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 46: if statement expects a non-empty block.
-    if result == "center":
-                          ^
-
-File "game/script.rpy", line 47: expected statement.
-    elif result == "bowserjr":
-                ^
-
-File "game/script.rpy", line 49: expected statement.
-    elif result == "peach":
-                ^
-
-File "game/script.rpy", line 51: expected statement.
-    elif result == "boo":
-                ^
+File "game/script.rpy", line 2: expected statement.
+    from screens import stats
+                             ^
 
 Ren'Py Version: Ren'Py 6.99.14.3.3347
-Thu May 24 18:19:26 2018
+Tue May 29 18:27:46 2018

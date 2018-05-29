@@ -1,37 +1,38 @@
-Thu May 24 18:18:43 2018
+Tue May 29 18:29:09 2018
 Darwin-15.6.0-x86_64-i386-64bit
 Ren'Py 6.99.14.3.3347
  
 
-Bootstrap to the start of init.init took 0.16s
+Bootstrap to the start of init.init took 0.11s
 Early init took 0.00s
 Loader init took 0.01s
-Loading error handling took 0.04s
-Loading script took 0.11s
+Loading error handling took 0.03s
+Loading script took 0.23s
 Loading save slot metadata. took 0.01s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.10s
-Loading analysis data took 0.07s
+Running init code took 0.07s
+Loading analysis data took 0.13s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
-Dump and make backups. took 0.15s
+Backing up script files to '/Users/James/Library/RenPy/backups/RenPy':
+Dump and make backups. took 0.08s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.02s
+Initial gc. took 0.03s
 DPI scale factor: 1.000000
-Creating interface object took 0.15s
+Creating interface object took 0.12s
 Cleaning stores took 0.00s
-Init translation took 0.04s
+Init translation took 0.03s
 Build styles took 0.01s
-Load screen analysis took 0.05s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.12s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.09s
+Prepare screens took 0.10s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.07s
 Running _start took 0.00s
-Interface start took 0.03s
+Interface start took 0.04s
 
 primary display bounds: (0, 0, 1280, 800)
 swap interval: 1 frames
@@ -182,33 +183,151 @@ Texture testing:
 - 512px textures work.
 - 1024px textures work.
 - 2048px textures work.
-Total time until interface ready: 1.44581794739s
+Total time until interface ready: 1.43291902542s
+
+Full traceback:
+  File "renpy/common/00gamemenu.rpy", line 173, in script
+    $ ui.interact()
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ast.py", line 862, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/python.py", line 1888, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "renpy/common/00gamemenu.rpy", line 173, in <module>
+    $ ui.interact()
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ui.py", line 287, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 2635, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 3019, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 511, in visit_all
+    d.visit_all(callback)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 511, in visit_all
+    d.visit_all(callback)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 511, in visit_all
+    d.visit_all(callback)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 511, in visit_all
+    d.visit_all(callback)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/screen.py", line 420, in visit_all
+    callback(self)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/core.py", line 3019, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/screen.py", line 430, in per_interact
+    self.update()
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/display/screen.py", line 611, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 599, in execute
+    screen death():
+  File "game/screens.rpy", line 599, in execute
+    screen death():
+  File "game/screens.rpy", line 602, in execute
+    use game_menu(_("Cheats"), scroll="viewport"):
+  File "game/screens.rpy", line 425, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 425, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 434, in execute
+    frame:
+  File "game/screens.rpy", line 437, in execute
+    hbox:
+  File "game/screens.rpy", line 443, in execute
+    frame:
+  File "game/screens.rpy", line 446, in execute
+    if scroll == "viewport":
+  File "game/screens.rpy", line 448, in execute
+    viewport:
+  File "game/screens.rpy", line 457, in execute
+    vbox:
+  File "game/screens.rpy", line 458, in execute
+    transclude
+  File "game/screens.rpy", line 602, in execute
+    use game_menu(_("Cheats"), scroll="viewport"):
+  File "game/screens.rpy", line 604, in execute
+    vbox:
+  File "game/screens.rpy", line 606, in execute
+    hbox:
+  File "game/screens.rpy", line 608, in execute
+    vbox:
+  File "game/screens.rpy", line 612, in execute
+    textbutton _("Kill Mario") action [Hide("death"), Kill(), Jump("peach")]
+  File "game/screens.rpy", line 612, in keywords
+    textbutton _("Kill Mario") action [Hide("death"), Kill(), Jump("peach")]
+  File "<screen language>", line 612, in <module>
+NameError: name 'Kill' is not defined
+
+While running game code:
+  File "renpy/common/00gamemenu.rpy", line 173, in script
+    $ ui.interact()
+  File "renpy/common/00gamemenu.rpy", line 173, in <module>
+    $ ui.interact()
+  File "game/screens.rpy", line 599, in execute
+    screen death():
+  File "game/screens.rpy", line 599, in execute
+    screen death():
+  File "game/screens.rpy", line 602, in execute
+    use game_menu(_("Cheats"), scroll="viewport"):
+  File "game/screens.rpy", line 425, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 425, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 434, in execute
+    frame:
+  File "game/screens.rpy", line 437, in execute
+    hbox:
+  File "game/screens.rpy", line 443, in execute
+    frame:
+  File "game/screens.rpy", line 446, in execute
+    if scroll == "viewport":
+  File "game/screens.rpy", line 448, in execute
+    viewport:
+  File "game/screens.rpy", line 457, in execute
+    vbox:
+  File "game/screens.rpy", line 458, in execute
+    transclude
+  File "game/screens.rpy", line 602, in execute
+    use game_menu(_("Cheats"), scroll="viewport"):
+  File "game/screens.rpy", line 604, in execute
+    vbox:
+  File "game/screens.rpy", line 606, in execute
+    hbox:
+  File "game/screens.rpy", line 608, in execute
+    vbox:
+  File "game/screens.rpy", line 612, in execute
+    textbutton _("Kill Mario") action [Hide("death"), Kill(), Jump("peach")]
+  File "game/screens.rpy", line 612, in keywords
+    textbutton _("Kill Mario") action [Hide("death"), Kill(), Jump("peach")]
+NameError: name 'Kill' is not defined
 Resetting cache.
-Bootstrap to the start of init.init took 42.33s
+Bootstrap to the start of init.init took 17.06s
 Early init took 0.00s
 Loader init took 0.01s
-Loading error handling took 0.10s
-Loading script took 0.42s
-Loading save slot metadata. took 0.17s
+Loading error handling took 0.02s
+Loading script took 0.48s
+Loading save slot metadata. took 0.01s
 Loading persistent took 0.00s
-
-File "game/script.rpy", line 46: if statement expects a non-empty block.
-    if result == "center":
-                          ^
-
-File "game/script.rpy", line 47: expected statement.
-    elif result == "bowserjr":
-                ^
-
-File "game/script.rpy", line 49: expected statement.
-    elif result == "peach":
-                ^
-
-File "game/script.rpy", line 51: expected statement.
-    elif result == "boo":
-                ^
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.10s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to '/Users/James/Library/RenPy/backups/RenPy':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
 DPI scale factor: 1.000000
-Interface start took 0.10s
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.09s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Interface start took 0.05s
 
 primary display bounds: (0, 0, 1280, 800)
 swap interval: 1 frames
@@ -359,4 +478,28 @@ Texture testing:
 - 512px textures work.
 - 1024px textures work.
 - 2048px textures work.
-Total time until interface ready: 43.3616878986s
+Total time until interface ready: 18.3948919773s
+
+Full traceback:
+  File "game/script.rpy", line 65, in script
+    peach "Oh hi there! [stats]"
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ast.py", line 652, in execute
+    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/exports.py", line 1180, in say
+    who(what, *args, **kwargs)
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 1003, in __call__
+    what = what_pattern.replace("[what]", sub(what, translate=translate))
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 985, in sub
+    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
+  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/substitutions.py", line 242, in substitute
+    s = formatter.vformat(s, (), kwargs)
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 563, in vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 585, in _vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 646, in get_field
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 605, in get_value
+KeyError: u'stats'
+
+While running game code:
+  File "game/script.rpy", line 65, in script
+    peach "Oh hi there! [stats]"
+KeyError: u'stats'
