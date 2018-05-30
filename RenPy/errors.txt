@@ -2,7 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/peachScript.rpy", line 20: 'break' outside loop
+File "game/script.rpy", line 413: invalid syntax
+    option1 = "I guess I'll go pick again?" if pick_mistake jump gamestart else "I wonder which one's my guide?"
+                                                                ^
+    
 
 Ren'Py Version: Ren'Py 6.99.14.3.3347
-Wed May 30 05:33:11 2018
+Wed May 30 08:06:38 2018
