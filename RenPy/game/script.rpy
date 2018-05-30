@@ -17,15 +17,28 @@ init python:
     motivation = 5
     creativity = 5
     marioRel = 0
+    peachVisited = 0
+
+label start:
+
+    # Show a background. This uses a placeholder by default, but you can
+    # add a file (named either "bg room.png" or "bg room.jpg") to the
+    # images directory to show it.
+
+    jump map
+    return
 
 
-
-
-
+    # This shows a character sprite. A placeholder is used, but you can
+    # replace it by adding a file named "eileen happy.png" to the images
+    # directory.
 
 label map:
+    hide screen display_stats
     call screen example_imagemap
     $ result = _return
+    show screen display_stats
+
     if result == "bowserjr":
         jump bowserjr
     elif result == "peach":
@@ -73,20 +86,6 @@ label mario:
             jump badend
 
 
-label start:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
-    show screen display_stats
-    jump map
-    return
-
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
 
 
 label finalend:
