@@ -1,26 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 30, in script
-    e dab "I wish I was as cool as you!"
-Exception: Say has image attributes (u'dab',), but there's no image tag associated with the speaking character.
+  File "game/script.rpy", line 12, in script
+    init python:
+  File "game/script.rpy", line 20, in <module>
+    peachVisited
+NameError: name 'peachVisited' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 30, in script
-    e dab "I wish I was as cool as you!"
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ast.py", line 652, in execute
-    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/exports.py", line 1180, in say
-    who(what, *args, **kwargs)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 949, in __call__
-    self.resolve_say_attributes(False, wanted=speaking)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 845, in resolve_say_attributes
-    raise Exception("Say has image attributes %r, but there's no image tag associated with the speaking character." % (attrs,))
-Exception: Say has image attributes (u'dab',), but there's no image tag associated with the speaking character.
+  File "game/script.rpy", line 12, in script
+    init python:
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\ast.py", line 862, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\python.py", line 1888, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 20, in <module>
+    peachVisited
+NameError: name 'peachVisited' is not defined
 
-Darwin-15.6.0-x86_64-i386-64bit
+Windows-8-6.2.9200
 Ren'Py 6.99.14.3.3347
 RenPy 1.0
-Thu May 17 15:34:05 2018
+Wed May 30 05:22:32 2018
