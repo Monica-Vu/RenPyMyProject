@@ -1,32 +1,57 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 65, in script
-    peach "Oh hi there! [stats]"
-KeyError: u'stats'
+While processing the margin property of anonymous style:
+  File "game/script.rpy", line 27, in script
+    call screen example_imagemap
+  File "renpy/common/000statements.rpy", line 519, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+TypeError: 'int' object has no attribute '__getitem__'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 65, in script
-    peach "Oh hi there! [stats]"
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/ast.py", line 652, in execute
-    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/exports.py", line 1180, in say
-    who(what, *args, **kwargs)
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 1003, in __call__
-    what = what_pattern.replace("[what]", sub(what, translate=translate))
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/character.py", line 985, in sub
-    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
-  File "/Users/James/Desktop/renpy-6.99.14.3-sdk/renpy/substitutions.py", line 242, in substitute
-    s = formatter.vformat(s, (), kwargs)
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 563, in vformat
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 585, in _vformat
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 646, in get_field
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 605, in get_value
-KeyError: u'stats'
+  File "game/script.rpy", line 27, in script
+    call screen example_imagemap
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\ast.py", line 1828, in execute
+    self.call("execute")
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\ast.py", line 1816, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\statements.py", line 177, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 519, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\exports.py", line 2664, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\ui.py", line 287, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\display\core.py", line 2635, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\display\core.py", line 3019, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\display\core.py", line 511, in visit_all
+    d.visit_all(callback)
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\display\core.py", line 511, in visit_all
+    d.visit_all(callback)
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\display\core.py", line 511, in visit_all
+    d.visit_all(callback)
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\display\screen.py", line 424, in visit_all
+    self.child.visit_all(callback)
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\display\core.py", line 511, in visit_all
+    d.visit_all(callback)
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\display\core.py", line 508, in visit_all
+    for d in self.visit():
+  File "G:\Downloadings\renpy-6.99.14.3-sdk\renpy\display\layout.py", line 1057, in visit
+    return [ self.style.background ] + self.children
+  File "gen/styleclass.pxi", line 133, in renpy.styledata.styleclass.Style.background.__get__
+  File "style.pyx", line 486, in renpy.style.StyleCore._get
+  File "style.pyx", line 702, in renpy.style.build_style
+  File "style.pyx", line 699, in renpy.style.build_style
+  File "gen/style_functions.pyx", line 1929, in style_functions.margin_property
+  File "include/style_common.pxi", line 30, in style_functions.index_0
+    return v[0]
+TypeError: 'int' object has no attribute '__getitem__'
 
-Darwin-15.6.0-x86_64-i386-64bit
+Windows-8-6.2.9200
 Ren'Py 6.99.14.3.3347
 RenPy 1.0
-Tue May 29 18:29:32 2018
+Wed May 30 04:51:34 2018
